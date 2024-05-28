@@ -1,0 +1,24 @@
+.image-container {
+    height: 200px; /* Set the desired height for the image */
+    overflow: hidden; /* Ensure that the image doesn't overflow its container */
+  }
+  .image-container img {
+    width: 100%; /* Ensure the image fills the width of its container */
+    height: 100%; /* Ensure the image fills the height of its container */
+    object-fit: contain; /* Ensure the image covers the entire container without distortion */
+  }
+  .title {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to three lines */
+    -webkit-box-orient: vertical;
+    height: 53px;
+  }
+ 
+  .description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Limit to two lines */
+    -webkit-box-orient: vertical;
+  }

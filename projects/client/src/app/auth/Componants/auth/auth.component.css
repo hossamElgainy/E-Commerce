@@ -1,0 +1,18 @@
+label {
+    font-weight: 600;
+    color: #666;
+}
+body {
+  background: #f1f1f1;
+  padding: 20px;
+}
+
+.box8 {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 5px 1px #999;
+}
+.mx-t3{
+  margin-top: -3rem;
+}

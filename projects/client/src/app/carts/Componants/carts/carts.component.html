@@ -1,0 +1,61 @@
+<div class="cart">
+  <div class="row mt-5">
+    <div class="col-md-9">
+      <h1>Shopping Cart</h1>
+      <h4>you have <span>{{cartProducts.length}}</span> items In Your Cart</h4>
+    </div>
+    <div class="col-md-3 mt-5">
+      <button class="btn btn-danger" (click)="clearCart()">Clear Shopping Cart</button>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quentity</th>
+        <th scope="col">Total</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="align-middle" *ngFor="let product of cartProducts;let index=index">
+        <th><img [src]="product.item.image" /></th>
+        <td>{{product.item.title}}</td>
+        <td>{{product.item.price}} L.E</td>
+        <td>
+          <div class="quentity d-flex">
+            <button class="btn btn-dark" (click)="incrementQuentity(index)">+</button>
+            <div class="w-50">
+              <input type="number" class="form-control" (change)="detectAmountChange()" [(ngModel)]="product.quentity"
+                min="1" />
+            </div>
+            <button class="btn btn-dark" (click)="decrementQuentity(index)">-</button>
+          </div>
+        </td>
+        <td>{{+product.item.price * +product.quentity}} L.E</td>
+        <td>
+          <button class="btn btn-danger" (click)="DeleteProductFromCart(index)">Delete</button>
+        </td>
+
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Total: {{cartTotalPrice|currency:"EGY"}}</th>
+        <th>
+          <button class="btn btn-success" (click)="MadeOrder()">Order Now</button>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+  <div class="alert alert-success" *ngIf="success"> Order Saved SuccessFully</div>
+
+</div>
+
+

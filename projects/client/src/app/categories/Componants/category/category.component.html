@@ -1,0 +1,38 @@
+<h2 class="text-center">Categories</h2>
+
+<div class="container p-5">
+
+    <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+
+        <div *ngFor="let cat of CatList">
+            <div routerLink="{{cat}}" class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="text-center">
+
+                        <div class="img-hover-zoom img-hover-zoom--colorize">
+                            <img *ngIf='cat=="jewelery"' class="shadow" src="../../../../assets/Jewelery.jpg"
+                                alt="jewelery">
+                            <img *ngIf='cat=="electronics"' class="shadow" src="../../../../assets/HardDrive.jpg"
+                                alt="jewelery">
+                            <img *ngIf="cat==mensCloths" class="shadow" src="../../../../assets/MensWear.jpg"
+                                alt="jewelery">
+                            <img *ngIf='cat==womensCloths' class="shadow" src="../../../../assets/Jewelery.jpg"
+                                alt="jewelery">
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="my-2 text-center">
+
+                            <h1>{{cat}}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

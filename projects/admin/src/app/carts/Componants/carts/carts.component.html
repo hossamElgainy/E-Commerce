@@ -1,0 +1,86 @@
+
+<h1 class="text-center m-5">All Carts</h1>
+<div class="cart" *ngIf="!loading">
+
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-md-3">
+          <label for="">Start Date</label>
+          <input type="date" formControlName="start" class="form-control">
+        </div>
+        <div class="col-md-3">
+          <label for="">End Date</label>
+          <input type="date" formControlName="end" class="form-control">
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+          <button class="btn btn-success" (click)="applyFilter()">Apply</button>
+        </div>
+      </div>
+    </form>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Quentity</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="align-middle" *ngFor="let cart of carts;let index=index">
+          <td>{{cart.date |date:"medium"}}</td>
+          <td>{{cart.products.length}}</td>
+          <td>
+            <button class="btn btn-danger m-1" (click)="DeleteItem(cart.id)">Delete</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="cartDetails(index)">
+              View Products
+            </button>
+           </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Button trigger modal -->
+  
+  <div class="text-center w-100" *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 1000px!important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Cart Products</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Title</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quentity</th>
+                <th scope="col">Total Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="align-middle" *ngFor="let product of products">
+                <td><img [src]="product.item.image"></td>
+                <td>{{product.item.title}}</td>
+                <td>{{product.item.price}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.item.price * product.quantity}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

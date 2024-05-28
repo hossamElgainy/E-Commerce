@@ -1,0 +1,92 @@
+<div class="d-flex justify-content-center align-items-center">
+    <div class="w-50 mt-5">
+        <form [formGroup]="userRegisterForm" (ngSubmit)="submit()">
+            <div class="row jumbotron box8">
+                <div class="col-sm-12 mx-t3 mb-4 pt-5">
+                    <h2 class="text-center text-info">Register</h2>
+                </div>
+                <div formGroupName="name">
+                    <div class="col-sm-12 form-group">
+                        <label for="firstname">First Name</label>
+                        <input type="text" class="form-control" formControlName="firstname" name="firstname" id="firstname"
+                            placeholder="Enter your first name." />
+                            <div [hidden]="firstname?.untouched">
+                                <small *ngIf="firstname?.errors?.['required']" class="text-danger">First Name Is Required</small>
+                            </div>
+                    </div>
+                    <div class="col-sm-12 form-group">
+                        <label for="lastname">Last name</label>
+                        <input type="text" class="form-control" formControlName="lastname" name="lastname" id="lastname"
+                            placeholder="Enter your last name." />
+                            <div [hidden]="lastname?.untouched">
+                                <small *ngIf="lastname?.errors?.['required']" class="text-danger">Last Name Is Required</small>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" formControlName="email" name="email" id="email"
+                        placeholder="Enter your email." />
+                        <div [hidden]="email?.untouched">
+                            <small *ngIf="email?.errors?.['required']" class="text-danger">Email Is Required</small>
+                        </div>
+                </div>
+                <div class="col-sm-12 form-group">
+                    <label for="uName">User Name</label>
+                    <input type="text" class="form-control" formControlName="username" name="uName" id="uName"
+                        placeholder="Enter UserName" />
+                        <div [hidden]="username?.untouched">
+                            <small *ngIf="username?.errors?.['required']" class="text-danger">UserName Is Required</small>
+                        </div>
+                </div>
+                <div formGroupName="address">
+                    <div class="col-sm-12 form-group">
+                        <label for="city">city</label>
+                        <input type="text" class="form-control" formControlName="city" name="city" id="city"
+                            placeholder="City Name." />
+                    </div>
+                    <div class="col-sm-12 form-group">
+                        <label for="street">street</label>
+                        <input type="text" class="form-control" formControlName="street" name="street" id="street"
+                            placeholder="Enter your street." />
+                    </div>
+                    <div class="col-sm-12 form-group">
+                        <label for="zipcode">Postal-Code</label>
+                        <input type="text" class="form-control" formControlName="zipcode" name="zipcode" id="zipcode"
+                            placeholder="Postal-Code." />
+                    </div>
+                </div>
+                <div class="col-sm-12 form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" name="phone" formControlName="phone" class="form-control" id="phone"
+                        placeholder="Enter Your Phone" />
+                        <div [hidden]="phone?.untouched">
+                            <small *ngIf="phone?.errors?.['required']" class="text-danger">Phome Number Is Required</small>
+                        </div>
+                </div>
+
+                <div class="col-sm-12 form-group">
+                    <label for="password">Password</label>
+                    <input type="Password" name="password" formControlName="password" class="form-control" id="password"
+                        placeholder="Enter your password." />
+                        <div [hidden]="password?.untouched">
+                            <small *ngIf="password?.errors?.['required']" class="text-danger">The Password Is Required</small>
+                        </div>
+                </div>
+                <div class="col-sm-12 form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="Password" name="confirmPassword" formControlName="confirmPassword" class="form-control" id="confirmPassword"
+                        placeholder="Re-enter your password." />
+                        <div [hidden]="confirmPassword?.untouched">
+                            <small *ngIf="confirmPassword?.errors?.['required']" class="text-danger">This Field Is Required</small>
+                            <small *ngIf="userRegisterForm?.errors?.['UnMatchedPassword']" class="text-danger">The Confirm Password Does not Match The Password</small>
+                        </div>
+                </div>
+
+                <div class="col-sm-12 form-group mb-0">
+                    <button class="btn btn-primary float-right" [disabled]="!userRegisterForm.valid">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="card h-100 mb-3">
+    <div routerLink="/Products/Product/{{data.id}}">
+      <div class="image-container">
+        <img [src]="data?.image" class="card-img-top img-fluid" alt="...">
+      </div>
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title title">{{data?.title}}</h5>
+        <h5 class="card-title"><span class="p-1">{{data?.category}}</span></h5>
+        <p class="card-text description">{{data?.description}}</p>
+        <div class="row">
+          <div class="col">
+            <fa-icon [icon]="faMoney"></fa-icon>
+            <span class="">{{data?.price | currency:"EGY"}}</span>
+          </div>
+          <div class="col text-end">
+            <fa-icon class="text-warning" [icon]="faStar"></fa-icon>
+
+            <span class="">{{data?.rating?.rate}} , <fa-icon [icon]="faUser"></fa-icon> {{data?.rating?.count}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="card-text"></p>
+    <a class="btn btn-primary mt-auto" *ngIf="!addProduct" (click)="addProduct = true" >             
+      <fa-icon [icon]="faCard"></fa-icon>
+      Add To Cart</a>
+    <div class="d-flex w-100 mt-auto" *ngIf="addProduct">
+      <input type="number" class="form-control" [(ngModel)]="amount" />
+      <button class="btn btn-danger" (click)="add();addProduct=false">Save</button>
+    </div>
+  </div>
