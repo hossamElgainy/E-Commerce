@@ -1,27 +1,48 @@
-# ECommerce
+# Angular 17 E-Commerce App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
+## This Angular 17 e-commerce application, built using a fake API, features separate user and admin interfaces.
 
-## Development server
+## Prerequirements
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Visual Studio Code
+* npm
+* Angular Cli
 
-## Code scaffolding
+### Clone the repo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```shell
+git clone https://github.com/hossamElgainy/E-Commerce.git
+cd ECommerce
+```
 
-## Build
+### Install npm packages
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Install the `npm` packages described in the `package.json` and verify that it works:
 
-## Running unit tests
+```shell
+npm install
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Features:
 
-## Running end-to-end tests
+* User Authentication: Users can register and log in.
+* Category Browsing: View and explore various product categories.
+* Product Viewing: Access detailed information for each product.
+* Cart Management: Add products to the shopping cart.
+* Order Processing: Place and manage orders.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Admin Features:
 
-## Further help
+* Admin Authentication: Admins can log in to the system.
+* Product Management: Add, edit, and manage products.
+* Order Management: View detailed order information and delete orders as needed.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Technologies
+* TypeScript
+* Angular 17
+* Angular WorkSpace
+* Dependency Injection
+* Bootstrap 5
+* Html & Css
+* toaster
